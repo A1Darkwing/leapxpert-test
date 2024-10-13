@@ -1,0 +1,38 @@
+app:
+  nodeId: 1
+  trans:
+    expire:
+      duration: 1
+  chatroom:
+    expire:
+      duration: 1
+  message-import:
+    expire:
+      duration: 1
+  attachments-import:
+    expire:
+      duration: 1
+kafka:
+  bootstrap:
+    servers: 127.0.0.1:9092
+  group:
+    id: purchase-prepaid-data-service
+  max:
+    block:
+      ms:
+        config: 5000
+  purchase:
+    topic: purchase-prepaid-data-service.purchase
+  chatroom:
+    topic: purchase-prepaid-data-service.chatroom-create
+  message-import:
+    topic: purchase-prepaid-data-service.message-import
+  attachment-import:
+    topic: purchase-prepaid-data-service.attachment-import
+server:
+  port: 8079
+spring:
+  datasource:
+    password: ''
+    url: jdbc:mysql://127.0.0.1:3306/test?useSSL=false&useUnicode=yes&autoReconnect=true&characterEncoding=UTF-8
+    username: root

@@ -1,0 +1,60 @@
+app:
+  trans:
+    expire:
+      duration: 1
+  chatroom:
+    expire:
+      duration: 1
+  message-import:
+    expire:
+      duration: 1
+  attachments-import:
+    expire:
+      duration: 1
+kafka:
+  bootstrap:
+    servers: 127.0.0.1:9092
+  group:
+    id: purchase-prepaid-data-service
+  max:
+    block:
+      ms:
+        config: 5000
+  purchase:
+    topic: purchase-prepaid-data-service.purchase
+  chatroom:
+    topic: purchase-prepaid-data-service.chatroom-create
+  message-import:
+    topic: purchase-prepaid-data-service.message-import
+  attachment-import:
+    topic: purchase-prepaid-data-service.attachment-import
+server:
+  port: 8078
+
+spring:
+  datasource:
+    password: ''
+    url: jdbc:mysql://127.0.0.1:3306/test?useSSL=false&useUnicode=yes&autoReconnect=true&characterEncoding=UTF-8
+    username: root
+
+# 3rd parties api config
+third-parties-config:
+  user:
+    filters:
+      http:
+        url: "https://user-domain/users/filters"
+        timeoutMilliseconds: 120000
+        useProxy: false
+        proxyHost: "localhost"
+        proxyPort: 0
+      testing: true
+      testData: "{'id': '636a1879b8f40d1c3d304ba3', 'phoneNumber': '84762627371', 'name': 'John'}"
+    create:
+      http:
+        url: "https://user-domain/users"
+        timeoutMilliseconds: 120000
+        useProxy: false
+        proxyHost: "localhost"
+        proxyPort: 0
+      testing: true
+      testData: "{'id': '636a1879b8f40d1c3d304ba3', 'phoneNumber': '84762627371', 'name': 'John'}"
