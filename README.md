@@ -65,14 +65,14 @@ cd ..
 mvn clean install
 ```
 
-Now you can start the Purchase Prepaid Services
+Now you can start the Message Services
 
 ```
 cd message-service
 mvn spring-boot:run 
 ```
 
-And start Purchase Prepaid Worker
+And start Message Worker
 
 ```
 cd message-worker
