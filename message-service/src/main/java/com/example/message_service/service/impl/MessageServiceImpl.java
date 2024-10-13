@@ -42,9 +42,6 @@ public class MessageServiceImpl implements MessageService {
     @Value("${kafka.message-import.topic}")
     private String importMessageTopic;
 
-    @Value("${kafka.attachment-import.topic}")
-    private String importAttachmentsTopic;
-
     @Override
     public String importMessage(ImportMessageRequest importMessageRequest) {
         List<MessageAuditReport> messageAuditReports = createMessageAuditReportFromRequest(importMessageRequest);
