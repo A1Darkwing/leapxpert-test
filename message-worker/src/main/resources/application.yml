@@ -15,21 +15,17 @@ kafka:
   bootstrap:
     servers: 127.0.0.1:9092
   group:
-    id: purchase-prepaid-data-service
+    id: message-service
   max:
     block:
       ms:
         config: 5000
-  purchase:
-    topic: purchase-prepaid-data-service.purchase
   chatroom:
-    topic: purchase-prepaid-data-service.chatroom-create
+    topic: message-service.chatroom-create
   message-import:
-    topic: purchase-prepaid-data-service.message-import
-  attachment-import:
-    topic: purchase-prepaid-data-service.attachment-import
+    topic: message-service.message-import
 server:
-  port: 8078
+  port: 8076
 
 spring:
   datasource:

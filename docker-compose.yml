@@ -61,7 +61,7 @@ services:
     entrypoint: >
       bash -c " \
         cub kafka-ready -b broker:29092 1 20 && \
-        kafka-topics --create --topic purchase-prepaid-data-service.purchase \
+        kafka-topics --create --topic message-service.message-import \
         --partitions 3 --replication-factor 1 --bootstrap-server broker:29092"
 
   redis:
